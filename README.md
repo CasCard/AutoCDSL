@@ -17,3 +17,5 @@ lol ! Thus automation can save **a day**.
 Thanks for the huge support for the project !
 
 Now read **detailed documentation for setup** at https://abelcheruvathoor.gitbook.io/autocdsl/
+
+Sponsors : Rajeshkannan Palvannan
