@@ -18,4 +18,11 @@ Thanks for the huge support for the project !
 
 Now read **detailed documentation for setup** at https://abelcheruvathoor.gitbook.io/autocdsl/
 
-Sponsors : Rajeshkannan Palvannan
+### Sponsors 
+
+Rajeshkannan Palvannan , Ashish Salunkhe , Mary C I
+
+### Support and Donation 
+If you found this documentation and setup useful for your investing journey, please do consider making a donation, so that I can make more contributions to the open source community and build powerful applications in terms of both software and hardware to serve our community.
+
+UPI ID : abelcd.xyz@paytm
