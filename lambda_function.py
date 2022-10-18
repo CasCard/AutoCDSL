@@ -11,7 +11,7 @@ from __future__ import print_function
 
 import configurations
 import math
- import os
+import os
 
 ### IF USING CONFIGURATIONS.PY FILE ###
 
