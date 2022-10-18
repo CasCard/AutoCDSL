@@ -11,13 +11,13 @@ from __future__ import print_function
 
 import configurations
 import math
+ import os
 
 ### IF USING CONFIGURATIONS.PY FILE ###
 
 '''
 KITE_USERNAME = configurations.KITE_USERNAME
 KITE_PASSWORD = configurations.KITE_PASSWORD
-KITE_PIN = configurations.KITE_PIN
 CDSL_PIN = configurations.CDSL_PIN
 KITE_SECRET = configurations.KITE_SECRET
 '''
@@ -32,7 +32,6 @@ KITE_SECRET = configurations.KITE_SECRET
 
 KITE_USERNAME = os.environ.get('KITE_USERNAME')
 KITE_PASSWORD = os.environ.get('KITE_PASSWORD')
-KITE_PIN = os.environ.get('KITE_PIN')
 CDSL_PIN = os.environ.get('CDSL_PIN')
 KITE_SECRET = os.environ.get('KITE_SECRET')
 
@@ -49,7 +48,6 @@ try:
     import json
     from selenium.webdriver import Chrome
     from selenium.webdriver.chrome.options import Options
-    import os
     import shutil
     import uuid
     import boto3
