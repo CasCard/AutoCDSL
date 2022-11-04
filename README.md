@@ -20,7 +20,9 @@ Now read **detailed documentation for setup** at https://abelcheruvathoor.gitboo
 
 ### Sponsors 
 
-Rajeshkannan Palvannan , Ashish Salunkhe , Mary C I
+Manikanth Devarakonda ,Rajeshkannan Palvannan , Ashish Salunkhe , Mary C I
+
+Thanks to all sponsers
 
 ### Support and Donation 
 If you found this documentation and setup useful for your investing journey, please do consider making a donation, so that I can make more contributions to the open source community and build powerful applications in terms of both software and hardware to serve our community.
