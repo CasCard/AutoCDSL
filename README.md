@@ -28,3 +28,6 @@ Thanks to all sponsers
 If you found this documentation and setup useful for your investing journey, please do consider making a donation, so that I can make more contributions to the open source community and build powerful applications in terms of both software and hardware to serve our community.
 
 UPI ID : abelcd.xyz@paytm
+
+![WhatsApp Image 2022-09-28 at 7 17 15 PM (1) (1)](https://user-images.githubusercontent.com/13176032/199991131-f98f9034-a0de-46bf-97e9-130280bbe1d4.jpeg)
+
