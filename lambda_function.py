@@ -9,7 +9,6 @@ Written by Abel C Dixon <abelcheruvathoor@gmail.com>, October 2021
 
 from __future__ import print_function
 
-import configurations
 import math
 import os
 
