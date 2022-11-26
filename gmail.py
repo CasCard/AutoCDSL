@@ -37,22 +37,25 @@ def main():
     service = build('gmail', 'v1', credentials=creds)
 
     # Call the Gmail API
-    results = service.users().messages().list(userId='me',maxResults=1,labelIds=['INBOX'],q="from:edis@cdslindia.co.in is:unread").execute()
-    message = results.get('messages', [])[0]
+    try:
+        results = service.users().messages().list(userId='me',maxResults=1,labelIds=['INBOX'],q="from:edis@cdslindia.co.in is:unread").execute()
+        message = results.get('messages', [])[0]
 
-    if not message:
-        print('No messages from CDSL found.')
-    else:
-        msg = service.users().messages().get(userId='me', id=message['id']).execute()
-        print("Your latest message from CDSL :")
-        email_data=msg['payload']['headers']
-        for values in email_data:
-            name=values["name"]
-            if name == "From":
-                from_name = values["value"]
-                print(msg['snippet'])
-                matchOTP = re.search('(\d{6})', str(msg['snippet']))
-                print(matchOTP.group())
+        if not message:
+            print('No messages from CDSL found.')
+        else:
+            msg = service.users().messages().get(userId='me', id=message['id']).execute()
+            print("Your latest message from CDSL :")
+            email_data=msg['payload']['headers']
+            for values in email_data:
+                name=values["name"]
+                if name == "From":
+                    from_name = values["value"]
+                    print(msg['snippet'])
+                    matchOTP = re.search('(\d{6})', str(msg['snippet']))
+                    print(matchOTP.group())
+    except:
+        print("No messages from CDSL found to read")
 
 if __name__ == '__main__':
     main()
