@@ -142,7 +142,7 @@ def lambda_handler(event, context):
     totp_val = totp(KITE_SECRET)
     print(f"TOTP : {totp_val}")
     driver.find_element_by_xpath("//input[@type='text']").send_keys(totp_val)
-    driver.find_element_by_class_name("button-orange").click()
+    #  driver.find_element_by_class_name("button-orange").click()  ; No more required
     driver.implicitly_wait(60)
     time.sleep(2)
 
