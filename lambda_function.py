@@ -1,4 +1,3 @@
-
 """
 Copyright (C) Quantum Dots - All Rights Reserved
 Unauthorized distribution of this file, via any medium is strictly prohibited
@@ -9,33 +8,21 @@ Written by Abel C Dixon <abelcheruvathoor@gmail.com>, October 2021
 
 from __future__ import print_function
 
-import math
+# import math
+
+
 import os
-
-### IF USING CONFIGURATIONS.PY FILE ###
-
-'''
-KITE_USERNAME = configurations.KITE_USERNAME
-KITE_PASSWORD = configurations.KITE_PASSWORD
-CDSL_PIN = configurations.CDSL_PIN
-KITE_SECRET = configurations.KITE_SECRET
-'''
-
-### END OF CONFIGURATIONS.PY FILE ###
-
-
-### IF USING ENVIRONMENT VARIABLES FROM AWS LAMBDA ###
-
-# Uncomment the following lines if using environment variables from AWS Lambda
-
 
 KITE_USERNAME = os.environ.get('KITE_USERNAME')
 KITE_PASSWORD = os.environ.get('KITE_PASSWORD')
+KITE_PIN = os.environ.get('KITE_PIN')
 CDSL_PIN = os.environ.get('CDSL_PIN')
 KITE_SECRET = os.environ.get('KITE_SECRET')
 
+# from __future__ import print_function
 
-### END OF ENVIRONMENT VARIABLES ###
+# import configurations
+import math
 
 # 6 digit OTP regular expression
 pattern = '(\d{2}):(\d{2}):(\d{2})'
@@ -47,6 +34,7 @@ try:
     import json
     from selenium.webdriver import Chrome
     from selenium.webdriver.chrome.options import Options
+    import os
     import shutil
     import uuid
     import boto3
@@ -59,13 +47,12 @@ try:
     from google.auth.transport.requests import Request
     from google.oauth2.credentials import Credentials
     import re
-
+    
     import base64
     import hmac
     import secrets
     import struct
     import sys
-
 
     print("All Modules Imported")
 
@@ -101,8 +88,8 @@ class WebDriver(object):
     def get(self):
         driver = Chrome('/opt/chromedriver', options=self.options)
         return driver
-
-
+        
+        
 
 def hotp(key, counter, digits=6, digest='sha1'):
     key = base64.b32decode(key.upper() + '=' * ((8 - len(key)) % 8))
@@ -128,6 +115,8 @@ def lambda_handler(event, context):
 
     KITE_URL = "https://kite.zerodha.com/"
     HOLDINGS_URL = "https://kite.zerodha.com/holdings"
+    
+    from selenium.common.exceptions import StaleElementReferenceException
 
     driver.get(KITE_URL)
 
@@ -136,14 +125,16 @@ def lambda_handler(event, context):
     driver.find_element_by_id('password').send_keys(KITE_PASSWORD)
 
     driver.find_element_by_class_name("button-orange").click()
-    driver.implicitly_wait(60)
+    driver.implicitly_wait(120)
+    print("Entered UserID and Password Successfully")
 
     # entering security pin
+    # driver.find_element_by_id('pin').send_keys(KITE_PIN)
     totp_val = totp(KITE_SECRET)
     print(f"TOTP : {totp_val}")
     driver.find_element_by_xpath("//input[@type='text']").send_keys(totp_val)
-    #  driver.find_element_by_class_name("button-orange").click()  ; No more required
     driver.implicitly_wait(60)
+    print("Entered TOTP Successfully")
     time.sleep(2)
 
     # navigating to holding page
