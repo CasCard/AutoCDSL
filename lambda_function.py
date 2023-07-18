@@ -142,6 +142,14 @@ def lambda_handler(event, context):
     driver.implicitly_wait(60)
     time.sleep(2)
 
+    try:
+        # selecting "I understand" option
+        driver.find_element_by_class_name("button-blue").click()
+        time.sleep(1)
+    except:
+        print("No I understand popup")
+        pass
+
     # selecting "Authorisation" option
     driver.find_element_by_xpath("//a[text()='Authorisation']").click()
     time.sleep(2)
