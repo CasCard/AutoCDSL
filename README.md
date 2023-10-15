@@ -18,6 +18,10 @@ Thanks for the huge support for the project !
 
 Now read **detailed documentation for setup** at https://abelcheruvathoor.gitbook.io/autocdsl/
 
+### Found Difficult to Setup ?
+
+Feel free to *book a 1-on-1* session with [me](https://topmate.io/abel_dixon/127536). So that I can help you in setting up the whole process.
+
 ### Sponsors 
 
 Manikanth Devarakonda ,Rajeshkannan Palvannan , Ashish Salunkhe , Mary C I
