@@ -132,7 +132,7 @@ def lambda_handler(event, context):
     # driver.find_element_by_id('pin').send_keys(KITE_PIN)
     totp_val = totp(KITE_SECRET)
     print(f"TOTP : {totp_val}")
-    driver.find_element_by_xpath("//input[@type='text']").send_keys(totp_val)
+    driver.find_element_by_xpath("//input[@type='number']").send_keys(totp_val)
     driver.implicitly_wait(60)
     print("Entered TOTP Successfully")
     time.sleep(2)
@@ -141,13 +141,12 @@ def lambda_handler(event, context):
     driver.get(HOLDINGS_URL)
     driver.implicitly_wait(60)
     time.sleep(2)
-
     try:
         # selecting "I understand" option
         driver.find_element_by_class_name("button-blue").click()
-        time.sleep(1)
+        time.sleep(2)
     except:
-        print("No I understand popup")
+        print("No I understand ")
         pass
 
     # selecting "Authorisation" option
